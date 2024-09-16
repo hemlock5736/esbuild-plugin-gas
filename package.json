@@ -1,0 +1,47 @@
+{
+  "name": "@hemlock5736/esbuild-plugin-gas",
+  "version": "0.1.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hemlock5736/esbuild-plugin-gas"
+  },
+  "license": "MIT",
+  "author": "hemlock5736",
+  "type": "module",
+  "main": "./dist/script/index.cjs",
+  "module": "./dist/module/index.mjs",
+  "types": "./dist/types/index.d.ts",
+  "files": ["dist/"],
+  "scripts": {
+    "build": "npm run build:types && npm run build:esbuild",
+    "build:esbuild": "tsx build.ts",
+    "build:types": "tsc",
+    "check": "biome check --write --unsafe .",
+    "prepare": "lefthook install",
+    "prepublishOnly": "npm run build",
+    "sort": "sort-package-json",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@babel/generator": "^7.25.6",
+    "@babel/parser": "^7.25.6",
+    "@babel/traverse": "^7.25.6",
+    "esbuild": "^0.23.1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.8.3",
+    "@types/babel__generator": "^7.6.8",
+    "@types/babel__traverse": "^7.20.6",
+    "@types/node": "^22.5.4",
+    "lefthook": "^1.7.15",
+    "rimraf": "^6.0.1",
+    "sort-package-json": "^2.10.1",
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.4",
+    "vitest": "^2.1.1"
+  },
+  "publishConfig": {
+    "@hemlock5736:registry": "https://npm.pkg.github.com"
+  }
+}
